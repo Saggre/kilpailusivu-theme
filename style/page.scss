@@ -1,0 +1,52 @@
+/*
+Page style :)
+*/
+
+.section {
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.section-description {
+  font-family: "Vinkel", "Helvetica", sans-serif;
+  font-size: 18px;
+  color: #000;
+  line-height: 50.4px;
+  font-weight: 500;
+}
+
+.editor-content {
+  padding: 139px 172px;
+}
+
+.editor-content-body {
+  padding: 60px 0;
+}
+
+.main-content-image {
+  position: relative;
+}
+
+.main-content-image img {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+}
+
+.participate-postbox {
+  padding-left: 100px;
+}
+
+.section.images, .section.participate, .section.rules {
+  padding: 100px 200px;
+}
+
+.section.images {
+  text-align: center;
+}
+
+p.small {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30.06px;
+}

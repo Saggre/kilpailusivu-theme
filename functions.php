@@ -14,6 +14,8 @@
 	Theme Support
 \*------------------------------------*/
 
+include_once 'participation.php';
+
 if ( ! isset( $content_width ) ) {
 	$content_width = 900;
 }
@@ -390,40 +392,37 @@ remove_filter( 'the_excerpt', 'wpautop' ); // Remove <p> tags from Excerpt altog
 	Custom Post Types
 \*------------------------------------*/
 
-// Create 1 Custom Post type for a Demo, called HTML5-Blank
+/**
+ * Custom post type for pic competition entries
+ */
 function ks_create_post_type() {
-	register_taxonomy_for_object_type( 'category', 'html5-blank' ); // Register Taxonomies for Category
-	register_taxonomy_for_object_type( 'post_tag', 'html5-blank' );
-	register_post_type( 'html5-blank', // Register Custom Post Type
+	//register_taxonomy_for_object_type( 'category', 'html5-blank' ); // Register Taxonomies for Category
+	//register_taxonomy_for_object_type( 'post_tag', 'html5-blank' );
+	register_post_type( 'image-entry',
 		array(
 			'labels'       => array(
-				'name'               => __( 'HTML5 Blank Custom Post', 'html5blank' ), // Rename these to suit
-				'singular_name'      => __( 'HTML5 Blank Custom Post', 'html5blank' ),
-				'add_new'            => __( 'Add New', 'html5blank' ),
-				'add_new_item'       => __( 'Add New HTML5 Blank Custom Post', 'html5blank' ),
-				'edit'               => __( 'Edit', 'html5blank' ),
-				'edit_item'          => __( 'Edit HTML5 Blank Custom Post', 'html5blank' ),
-				'new_item'           => __( 'New HTML5 Blank Custom Post', 'html5blank' ),
-				'view'               => __( 'View HTML5 Blank Custom Post', 'html5blank' ),
-				'view_item'          => __( 'View HTML5 Blank Custom Post', 'html5blank' ),
-				'search_items'       => __( 'Search HTML5 Blank Custom Post', 'html5blank' ),
-				'not_found'          => __( 'No HTML5 Blank Custom Posts found', 'html5blank' ),
-				'not_found_in_trash' => __( 'No HTML5 Blank Custom Posts found in Trash', 'html5blank' )
+				'name'               => __( 'Comp. Entries', 'kilpailusivu' ), // Rename these to suit
+				'singular_name'      => __( 'Entry', 'kilpailusivu' ),
+				'add_new'            => __( 'Add New', 'kilpailusivu' ),
+				'add_new_item'       => __( 'Add New Entry', 'kilpailusivu' ),
+				'edit'               => __( 'Edit', 'kilpailusivu' ),
+				'edit_item'          => __( 'Edit Entry', 'kilpailusivu' ),
+				'new_item'           => __( 'New Entry', 'kilpailusivu' ),
+				'view'               => __( 'View', 'kilpailusivu' ),
+				'view_item'          => __( 'View Entry', 'kilpailusivu' ),
+				'search_items'       => __( 'Search Entries', 'kilpailusivu' ),
+				'not_found'          => __( 'No Entries found', 'kilpailusivu' ),
+				'not_found_in_trash' => __( 'No Entries found in Trash', 'kilpailusivu' )
 			),
 			'public'       => true,
-			'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
+			'hierarchical' => true,
 			'has_archive'  => true,
 			'supports'     => array(
 				'title',
-				'editor',
-				'excerpt',
-				'thumbnail'
-			), // Go to Dashboard Custom HTML5 Blank post for supports
+			),
+			'menu_icon'    => 'dashicons-smiley',
 			'can_export'   => true, // Allows export in Tools > Export
-			'taxonomies'   => array(
-				'post_tag',
-				'category'
-			) // Add Category and Post Tags support
+			'taxonomies'   => array()
 		) );
 }
 
