@@ -1,8 +1,11 @@
 <?php get_header(); ?>
 
 	<main role="main">
+
+        <div class="background"></div>
+
 		<!-- section -->
-		<section>
+		<section class="content">
 
 			<h1><?php the_title(); ?></h1>
 
@@ -29,7 +32,7 @@
 			<!-- article -->
 			<article>
 
-				<h2><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h2>
+				<h2><?php _e( 'Sorry, nothing to display.', 'kilpailusivu' ); ?></h2>
 
 			</article>
 			<!-- /article -->
