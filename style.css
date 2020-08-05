@@ -5647,6 +5647,12 @@ p.small {
   line-height: 30.06px;
 }
 
+p.x-small {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23.38px;
+}
+
 /*
   Header scss
 */

@@ -9,32 +9,35 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && ! empty( $_POST['action'] ) && $_PO
 
 	$is_ajax = false;
 
-	if ( $is_ajax ) {
-		//require( dirname(__FILE__) . '/../../../wp-load.php' );
+	if ( isset ( $_POST['is-ajax'] ) ) {
+		$is_ajax = boolval( $_POST['is-ajax'] );
 	}
 
-	if ( isset ( $_POST['title'] ) ) {
+	// Load wp functionality
+	require( dirname( __FILE__ ) . '/../../../wp-load.php' );
+
+	if ( ! empty ( $_POST['title'] ) ) {
 		$title = sanitize_text_field( $_POST['title'] );
 	} else {
 		$return["error"]     = true;
 		$return["error_msg"] = "Anna kuvalle otsikko";
 	}
 
-	if ( isset ( $_POST['name'] ) ) {
+	if ( ! empty( $_POST['name'] ) ) {
 		$name = sanitize_text_field( $_POST['name'] );
 	} else {
 		$return["error"]     = true;
 		$return["error_msg"] = "Anna nimesi";
 	}
 
-	if ( isset ( $_POST['email'] ) ) {
+	if ( ! empty ( $_POST['email'] ) ) {
 		$email = sanitize_text_field( $_POST['email'] );
 	} else {
 		$return["error"]     = true;
 		$return["error_msg"] = "Anna sähköpostiosoitteesi";
 	}
 
-	if ( isset ( $_FILES['image'] ) ) {
+	if ( ! empty ( $_FILES['image'] ) && $_FILES['image']['error'] == 0 ) {
 		$image = $_FILES['image'];
 
 		if ( $image['size'] > wp_max_upload_size() ) {
@@ -56,7 +59,12 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && ! empty( $_POST['action'] ) && $_PO
 		$return["error_msg"] = "Tapahtui tuntematon virhe. Yritä uudestaan";
 	}
 
-	echo $is_ajax ? json_encode( $return ) : get_participation_modal( $return );
+	if ( ! $is_ajax ) {
+		wp_redirect( home_url() );
+		exit;
+	} else {
+		echo( json_encode( $return ) );
+	}
 }
 
 /**
@@ -116,13 +124,4 @@ function insert_participation( $title, $name, $email, $image ) {
 	}
 
 	return true;
-}
-
-function get_participation_modal( $return ) {
-	ob_start(); ?>
-    <div>
-        <span><?php echo( ! $return["error"] ? "Onnistui" : "Virhe" ); ?></span>
-        <p><?php echo( $return["error_msg"] ); ?></p>
-    </div>
-	<?php return ob_get_clean();
 }

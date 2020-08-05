@@ -14,7 +14,7 @@
 	Theme Support
 \*------------------------------------*/
 
-include_once 'participation.php';
+//include_once 'participation.php';
 
 if ( ! isset( $content_width ) ) {
 	$content_width = 900;
@@ -108,11 +108,22 @@ function ks_scripts() {
 		), '6.6.3' );
 		wp_enqueue_script( 'foundation' );
 
+		wp_register_script( 'jquery-form', get_template_directory_uri() . '/js/lib/jquery.form.min.js', array( 'jquery' ), '5.2.3' );
+		wp_enqueue_script( 'jquery-form' );
+
 		wp_register_script( 'ks_scripts', get_template_directory_uri() . '/js/scripts.js', array(
 			'jquery',
+			'jquery-form',
 			'what-input',
 			'foundation'
 		), '1.0.0' );
+
+		// Localize the script with new data
+		$ks_data = array(
+			'templateDirectoryUri' => get_template_directory_uri(),
+		);
+		wp_localize_script( 'ks_scripts', 'ksData', $ks_data );
+
 		wp_enqueue_script( 'ks_scripts' );
 	}
 }
