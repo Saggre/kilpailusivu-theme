@@ -93,33 +93,8 @@ function ks_nav() {
 function ks_scripts() {
 	if ( $GLOBALS['pagenow'] != 'wp-login.php' && ! is_admin() ) {
 
-		wp_register_script( 'conditionizr', get_template_directory_uri() . '/js/lib/conditionizr-4.3.0.min.js', array(), '4.3.0' );
-		wp_enqueue_script( 'conditionizr' );
-
-		wp_register_script( 'modernizr', get_template_directory_uri() . '/js/lib/modernizr-2.7.1.min.js', array(), '2.7.1' );
-		wp_enqueue_script( 'modernizr' );
-
-		wp_register_script( 'what-input', get_template_directory_uri() . '/js/lib/what-input.js', array( 'jquery' ), '5.2.3' );
-		wp_enqueue_script( 'what-input' );
-
-		wp_register_script( 'jquery-scroll', get_template_directory_uri() . '/js/lib/jQuery.scrollTo.min.js', array( 'jquery' ), '2.1.2' );
-		wp_enqueue_script( 'jquery-scroll' );
-
-		wp_register_script( 'foundation', get_template_directory_uri() . '/js/lib/foundation.min.js', array(
+		wp_register_script( 'ks_scripts', get_template_directory_uri() . '/js/app.min.js', array(
 			'jquery',
-			'what-input'
-		), '6.6.3' );
-		wp_enqueue_script( 'foundation' );
-
-		wp_register_script( 'jquery-form', get_template_directory_uri() . '/js/lib/jquery.form.min.js', array( 'jquery' ), '5.2.3' );
-		wp_enqueue_script( 'jquery-form' );
-
-		wp_register_script( 'ks_scripts', get_template_directory_uri() . '/js/scripts.js', array(
-			'jquery',
-			'jquery-form',
-			'what-input',
-			'foundation',
-			'jquery-scroll',
 		), '1.0.0' );
 
 		// Localize the script with new data
