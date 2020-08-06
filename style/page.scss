@@ -8,7 +8,7 @@ Page style :)
 }
 
 .section-description {
-  font-family: "Vinkel", "Helvetica", sans-serif;
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
   font-size: 18px;
   color: #000;
   line-height: 50.4px;
@@ -37,12 +37,188 @@ Page style :)
   padding-left: 100px;
 }
 
-.section.images, .section.participate, .section.rules {
+.section.entries, .section.participate, .section.rules {
   padding: 100px 200px;
 }
 
-.section.images {
+.section.entries {
   text-align: center;
+}
+
+.entries-grid {
+  margin: 0 -10px 50px -10px;
+}
+
+.entries-grid .entry {
+  padding: 0 10px;
+  margin-bottom: 65px;
+}
+
+.entry-title, .entry-submitter {
+  display: block;
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  color: #4A4A4A;
+  text-align: left;
+}
+
+.entry-title {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.entry-submitter {
+  font-size: 14px;
+  color: #4A4A4A;
+  letter-spacing: 1.75px;
+  text-transform: uppercase;
+}
+
+.entry-image {
+  margin-bottom: 20px;
+}
+
+.entry-button-container {
+  background: #D8D8D8;
+  border-radius: 999px;
+  height: 48px;
+  margin-bottom: 15px;
+}
+
+.entry-share-button {
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #555555;
+  letter-spacing: 2px;
+  line-height: 20px;
+  padding: 14px 24px;
+}
+
+.entry-share-button:hover {
+  color: #555555;
+}
+
+.entry-like-button {
+  background: #fff;
+  border: 3px solid #E5007C;
+  border-radius: 999px;
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: #E5007C;
+  letter-spacing: 2px;
+  line-height: 20px;
+  padding: 11px 24px;
+  transition: background 160ms;
+}
+
+.entry-like-button:hover {
+  color: #fff;
+  background: #E5007C;
+}
+
+.entry-navigation-previous, .entry-navigation-next, .entry-navigation-numbers {
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: #D8D8D8;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.entry-navigation-number {
+  display: inline-block;
+  width: 36px;
+}
+
+.entry-navigation-number.current {
+  color: #E5007C;
+}
+
+.entry-navigation-numbers {
+  font-size: 24px;
+}
+
+#participation-form label {
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
+  font-size: 14px;
+}
+
+#participation-form input {
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
+  font-size: 16px;
+  border: 3px solid #D0D0D0;
+  border-radius: 999px;
+  padding: 11px 24px;
+  vertical-align: middle;
+  height: 48px;
+  margin-bottom: 20px;
+}
+
+#participation-form input:focus {
+  border: 3px solid #E5007C;
+  box-shadow: none;
+}
+
+#participation-form .participation-image-label {
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
+  background: #D8D8D8;
+  border-radius: 999px;
+  display: block;
+  font-size: 16px;
+  color: #555555;
+  letter-spacing: 2px;
+  text-align: center;
+  line-height: 20px;
+  padding: 14px 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+#participation-form #participation-checkbox {
+  background: #fff;
+  border: 3px solid #E7E7E7;
+  height: 16px;
+  width: 16px;
+  border-radius: 2px;
+  margin: 0;
+}
+
+#participation-form #participation-checkbox:checked {
+
+}
+
+#participation-form .participation-checkbox-label {
+  font-size: 16px;
+  line-height: 16px;
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
+}
+
+#participation-form .participation-checkbox-label a {
+  color: #E5007C;
+  text-decoration: underline;
+}
+
+#participation-form .participation-submit {
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 2px;
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 11px 26px;
+  border-radius: 999px;
+  background: #E5007C;
+  border: 3px solid #E5007C;
+  text-transform: uppercase;
+  transition: background, color 160ms;
+}
+
+#participation-form .participation-submit:hover {
+  background: transparent;
+  color: #E5007C;
 }
 
 p.small {

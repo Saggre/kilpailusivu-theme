@@ -27,8 +27,27 @@
   font-weight: bold;
 }
 
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("fonts/Roboto-Bold.ttf");
+  font-weight: bold;
+}
+
 body {
   position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
 }
 
 h1, h2, h3, h4, h5 {

@@ -55,9 +55,22 @@
         </div>
     </section>
 
-    <section class="section images">
+    <section class="section entries">
         <h2>Kilpailun kuvat otsikko</h2>
         <span class="section-description">Aikaa osallistua ja äänestää 1.2.2020 asti</span>
+        <div style="height:70px;"></div>
+        <div class="grid-x entries-grid"></div>
+        <div class="grid-x align-middle align-center entry-navigation">
+            <div class="cell shrink entry-navigation-previous">
+                Edellinen
+            </div>
+            <div class="cell shrink entry-navigation-numbers">
+
+            </div>
+            <div class="cell shrink entry-navigation-next">
+                Seuraava
+            </div>
+        </div>
     </section>
 
     <section class="section participate">
@@ -86,28 +99,31 @@
                       action="<?php echo( get_template_directory_uri() . "/participation.php" ); ?>"
                       enctype="multipart/form-data">
 
-                    <p><label for="participation-title">Kuvan otsikko</label><br/>
-                        <input type="text" id="participation-title" value="" tabindex="1" size="20" name="title"/>
+                    <p><label for="participation-title">Kuvan otsikko *</label>
+                        <input type="text" id="participation-title" value="" tabindex="1" size="20" name="title"
+                               required/>
                     </p>
 
-                    <p><label for="participation-name">Nimi</label><br/>
-                        <input type="text" id="participation-name" value="" tabindex="1" size="20" name="name"/>
+                    <p><label for="participation-name">Nimi *</label>
+                        <input type="text" id="participation-name" value="" tabindex="1" size="20" name="name"
+                               required/>
                     </p>
 
-                    <p><label for="participation-email">Sähköposti</label><br/>
-                        <input type="text" id="participation-email" value="" tabindex="1" size="20" name="email"/>
+                    <p><label for="participation-email">Sähköposti *</label>
+                        <input type="email" id="participation-email" value="" tabindex="1" size="20" name="email"
+                               required/>
                     </p>
 
-                    <p><label for="participation-image">Valitse kuva</label><br/>
-                        <input type="file" name="image" id="participation-image" accept="image/*"
+                    <p><label class="participation-image-label" for="participation-image">Valitse kuva</label>
+                        <input type="file" name="image" id="participation-image" accept="image/*" required
                                style="display:none;">
                     </p>
 
-                    <p><input type="checkbox" id="participation-checkbox" name="checkbox" value="">
-                        <label for="participation-checkbox">Hyväksyn kilpailun <a href="#">säännöt ja
-                                ehdot</a></label><br></p>
+                    <p><input type="checkbox" id="participation-checkbox" name="checkbox" value="" required>
+                        <label class="participation-checkbox-label" for="participation-checkbox">Hyväksyn kilpailun <a href="#">säännöt ja
+                                ehdot</a></label></p>
 
-                    <input type="submit" name="participation-submit" value="Osallistu"/>
+                    <input type="submit" class="participation-submit" name="participation-submit" value="Osallistu"/>
 
                     <input type="hidden" name="action" value="new-participation"/>
 
