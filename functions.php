@@ -102,6 +102,9 @@ function ks_scripts() {
 		wp_register_script( 'what-input', get_template_directory_uri() . '/js/lib/what-input.js', array( 'jquery' ), '5.2.3' );
 		wp_enqueue_script( 'what-input' );
 
+		wp_register_script( 'jquery-scroll', get_template_directory_uri() . '/js/lib/jQuery.scrollTo.min.js', array( 'jquery' ), '2.1.2' );
+		wp_enqueue_script( 'jquery-scroll' );
+
 		wp_register_script( 'foundation', get_template_directory_uri() . '/js/lib/foundation.min.js', array(
 			'jquery',
 			'what-input'
@@ -115,7 +118,8 @@ function ks_scripts() {
 			'jquery',
 			'jquery-form',
 			'what-input',
-			'foundation'
+			'foundation',
+			'jquery-scroll',
 		), '1.0.0' );
 
 		// Localize the script with new data

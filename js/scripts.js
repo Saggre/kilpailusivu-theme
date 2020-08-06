@@ -7,7 +7,24 @@
         var entriesPerPage = 8;
         var currentPage = 0;
 
-        refreshEntries(entriesPerPage, currentPage);
+        refreshEntries(entriesPerPage, currentPage, true);
+
+        $('.participate-cta').click(function () {
+            $(window).scrollTo($('.section.participate'), 400, {
+                axis: 'y',
+                offset: -100,
+            });
+        });
+
+        $(window).resize(function () {
+
+            $('.entries-grid .entry .entry-image').each(
+                function () {
+                    console.log("eyy");
+                    $(this).height($(this).width());
+                }
+            );
+        });
 
         $('#participation-form input[name="is-ajax"]').val("1");
 
@@ -41,8 +58,7 @@
             refreshEntries(entriesPerPage, currentPage);
         });
 
-        function refreshEntries(number, page) {
-
+        function refreshEntries(number, page, first = false) {
             $.ajax({
                 type: "POST",
                 url: ksData.templateDirectoryUri + '/get_entries.php',
@@ -58,10 +74,17 @@
 
                     var entries = data.entries;
                     for (var i = 0; i < entries.length; i++) {
-                        var el = addEntryHTML(entries[i]);
+                        addEntryHTML(entries[i]);
                     }
 
                     refreshNavigation(data.post_count, number);
+
+                    if (!first) {
+                        $(window).scrollTo($('.section.entries'), 400, {
+                            axis: 'y',
+                            offset: -100,
+                        });
+                    }
                 },
                 dataType: 'json'
             });
@@ -105,7 +128,7 @@
 
         function addEntryHTML(entry) {
             var entryElement = $('<div/>', {
-                "class": 'entry small-3',
+                "class": 'entry small-12 medium-6 large-3',
             });
 
             entryElement.appendTo($('.entries-grid')).hide().fadeIn();
