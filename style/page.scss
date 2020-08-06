@@ -220,11 +220,7 @@ Page style :)
       line-height: 20px;
       padding: 11px 20px;
       transition: background 160ms;
-
-      &:hover {
-        color: #fff;
-        background: #E5007C;
-      }
+      text-align: center;
 
       &-icon {
         @extend %fa-icon;
@@ -239,18 +235,33 @@ Page style :)
         }
       }
 
-      &:hover &-icon {
+      &.liked .entry-like-button-icon {
+        margin-left: 0;
+        margin-right: 10px;
+      }
+
+      &:hover .entry-like-button-icon {
         color: #fff;
+      }
+
+      &:hover, &.liked {
+        color: #fff;
+        background: #E5007C;
       }
     }
   }
 }
 
 .entry-navigation {
+  &-previous, &-next {
+    display: none;
+  }
+
   &-previous, &-next, &-numbers {
     font-family: 'Vinkel', 'Helvetica', sans-serif;
     font-weight: 700;
     font-size: 16px;
+    line-height: 36px;
     color: #D8D8D8;
     cursor: pointer;
     margin: 0 10px;

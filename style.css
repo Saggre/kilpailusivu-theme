@@ -11590,8 +11590,11 @@ body {
 * {
   box-sizing: border-box;
 }
+*:focus {
+  outline: none;
+}
 
-input:focus, textarea:focus, select:focus {
+a {
   outline: none;
 }
 
@@ -11959,10 +11962,7 @@ Page style :)
   line-height: 20px;
   padding: 11px 20px;
   transition: background 160ms;
-}
-.entries-grid .entry-like-button:hover {
-  color: #fff;
-  background: #E5007C;
+  text-align: center;
 }
 .entries-grid .entry-like-button-icon {
   margin-left: 10px;
@@ -11972,14 +11972,26 @@ Page style :)
 .entries-grid .entry-like-button-icon:before {
   content: "";
 }
-.entries-grid .entry-like-button:hover .entries-grid .entry-like-button-icon {
+.entries-grid .entry-like-button.liked .entry-like-button-icon {
+  margin-left: 0;
+  margin-right: 10px;
+}
+.entries-grid .entry-like-button:hover .entry-like-button-icon {
   color: #fff;
 }
+.entries-grid .entry-like-button:hover, .entries-grid .entry-like-button.liked {
+  color: #fff;
+  background: #E5007C;
+}
 
+.entry-navigation-previous, .entry-navigation-next {
+  display: none;
+}
 .entry-navigation-previous, .entry-navigation-next, .entry-navigation-numbers {
   font-family: "Vinkel", "Helvetica", sans-serif;
   font-weight: 700;
   font-size: 16px;
+  line-height: 36px;
   color: #D8D8D8;
   cursor: pointer;
   margin: 0 10px;

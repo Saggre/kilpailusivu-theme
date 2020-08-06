@@ -30,6 +30,28 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 		$offset = 0;
 	}
 
+	$entries = get_entries( $number, $offset );
+
+	$return["post_count"] = $entries["post_count"];
+	$return["entries"]    = $entries["entries"];
+
+	echo( json_encode( $return ) );
+}
+
+/**
+ * Gets entries from wp
+ *
+ * @param $number
+ * @param $offset
+ *
+ * @return array
+ */
+function get_entries( $number, $offset ) {
+	$entries = array(
+		"entries"    => array(),
+		"post_count" => 0,
+	);
+
 	$args = array(
 		'orderby'        => 'date',
 		'order'          => 'DESC',
@@ -47,21 +69,18 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 			$id = get_the_ID();
 
-			array_push( $return["entries"], array(
+			array_push( $entries["entries"], array(
 				"title" => get_the_title(),
 				"name"  => get_field( "submitter", $id ),
 				"image" => get_field( "image", $id ),
 			) );
 		}
 
-	} else {
-		$return["error"] = true;
 	}
 
 	wp_reset_postdata();
 
-	$return["post_count"] = wp_count_posts( 'image-entry' )->publish;
+	$entries["post_count"] = wp_count_posts( 'image-entry' )->publish;
 
-	echo( json_encode( $return ) );
-
+	return $entries;
 }

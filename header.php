@@ -20,10 +20,8 @@
 </head>
 <body <?php body_class(); ?>>
 
-<!-- wrapper -->
 <div class="wrapper">
 
-    <!-- header -->
     <header class="header clear" role="banner">
         <div class="grid-x align-middle align-center" style="height:100%;">
             <div class="cell small-12 medium-shrink large-shrink">
@@ -39,4 +37,3 @@
         </div>
 
     </header>
-    <!-- /header -->

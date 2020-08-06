@@ -24,7 +24,7 @@
 
 							<?php the_content(); ?>
 
-							<?php comments_template( '', true ); // Remove if you don't want comments ?>
+							<?php comments_template( '', true ); ?>
 
                             <br class="clear">
 
@@ -50,7 +50,8 @@
         <h2>Kilpailun kuvat otsikko</h2>
         <span class="section-description">Aikaa osallistua ja äänestää 1.2.2020 asti</span>
         <div style="height:70px;"></div>
-        <div class="grid-x entries-grid"></div>
+        <div class="grid-x entries-grid">
+        </div>
         <div class="grid-x align-middle align-center entry-navigation">
             <div class="cell shrink entry-navigation-previous">
                 Edellinen
@@ -119,7 +120,7 @@
 
                     <p class="participation-form-error"><i class="participation-form-error-icon"></i><span
                                 class="participation-form-error-message">Error text</span>
-                    <p/>
+                    </p>
 
                     <input type="submit" class="participation-submit" name="participation-submit" value="Osallistu"/>
 

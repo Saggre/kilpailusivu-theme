@@ -79,9 +79,13 @@ body {
 
 * {
   box-sizing: border-box;
+
+  &:focus {
+    outline: none;
+  }
 }
 
-input:focus, textarea:focus, select:focus {
+a {
   outline: none;
 }
 

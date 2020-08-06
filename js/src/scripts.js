@@ -12,7 +12,7 @@
         $('.participate-cta').click(function () {
             $(window).scrollTo($('.section.participate'), 400, {
                 axis: 'y',
-                offset: -100,
+                offset: -50,
             });
         });
 
@@ -24,6 +24,28 @@
                 }
             );
         });
+
+        /**
+         * Called on entry like button press
+         * @param $button
+         */
+        function onEntryLiked($button) {
+            $button.addClass('liked');
+
+            // Fake like count
+            $button.children('.entry-like-button-text').text('');
+            $button.children('.entry-like-button-count').text(Math.floor(Math.random() * 256));
+
+            // TODO implementation
+        }
+
+        /**
+         * Called on entry share button press
+         * @param $button
+         */
+        function onEntryShared($button) {
+            // TODO implementation
+        }
 
         $('#participation-form input[name="is-ajax"]').val("1");
 
@@ -46,12 +68,12 @@
             },
         });
 
-        $('.entry-navigation-previous').click(function () {
+        $('.entry-navigation-previous').show().click(function () {
             currentPage = Math.max(0, currentPage - 1);
             refreshEntries(entriesPerPage, currentPage);
         });
 
-        $('.entry-navigation-next').click(function () {
+        $('.entry-navigation-next').show().click(function () {
             var pages = parseInt($(".entry-navigation-numbers").attr('pages'));
             currentPage = Math.min(pages - 1, currentPage + 1);
             refreshEntries(entriesPerPage, currentPage);
@@ -79,7 +101,7 @@
                     if (!first) {
                         $(window).scrollTo($('.section.entries'), 400, {
                             axis: 'y',
-                            offset: -100,
+                            offset: -50,
                         });
                     }
                 },
@@ -141,20 +163,34 @@
             }).appendTo(entryElement);
 
             $('<a/>', {
-                href: '',
+                href: '#/',
                 "class": 'entry-like-button cell shrink',
-                text: 'Äänestä',
-            }).appendTo(buttonContainer).append(
+            }).appendTo(buttonContainer).prepend(
+                $('<span/>', {
+                    "class": 'entry-like-button-text',
+                    text: 'Äänestä',
+                })
+            ).append(
                 $('<i/>', {
                     "class": 'entry-like-button-icon',
                 })
-            );
+            ).append(
+                $('<span/>', {
+                    "class": 'entry-like-button-count',
+                })
+            ).click(function (e) {
+                onEntryLiked($(this));
+                e.preventDefault();
+            });
 
             $('<a/>', {
-                href: '',
+                href: '#/',
                 "class": 'entry-share-button cell auto',
                 text: 'Jaa',
-            }).appendTo(buttonContainer);
+            }).appendTo(buttonContainer).click(function (e) {
+                onEntryShared($(this));
+                e.preventDefault();
+            });
 
             $('<span/>', {
                 "class": 'entry-title',
@@ -171,4 +207,4 @@
 
     });
 
-})(jQuery, this);
+})(jQuery);

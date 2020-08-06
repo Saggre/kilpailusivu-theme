@@ -4,22 +4,6 @@
  *  Custom functions, support, custom post types and more.
  */
 
-/*------------------------------------*\
-	External Modules/Files
-\*------------------------------------*/
-
-// Load any external files you have here
-
-/*------------------------------------*\
-	Theme Support
-\*------------------------------------*/
-
-//include_once 'participation.php';
-
-if ( ! isset( $content_width ) ) {
-	$content_width = 900;
-}
-
 if ( function_exists( 'add_theme_support' ) ) {
 	// Add Menu Support
 	add_theme_support( 'menus' );
@@ -30,25 +14,6 @@ if ( function_exists( 'add_theme_support' ) ) {
 	add_image_size( 'medium', 250, '', true ); // Medium Thumbnail
 	add_image_size( 'small', 120, '', true ); // Small Thumbnail
 	add_image_size( 'custom-size', 700, 200, true ); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
-
-	// Add Support for Custom Backgrounds - Uncomment below if you're going to use
-	/*add_theme_support('custom-background', array(
-	'default-color' => 'FFF',
-	'default-image' => get_template_directory_uri() . '/img/bg.jpg'
-	));*/
-
-	// Add Support for Custom Header - Uncomment below if you're going to use
-	/*add_theme_support('custom-header', array(
-	'default-image'			=> get_template_directory_uri() . '/img/headers/default.jpg',
-	'header-text'			=> false,
-	'default-text-color'		=> '000',
-	'width'				=> 1000,
-	'height'			=> 198,
-	'random-default'		=> false,
-	'wp-head-callback'		=> $wphead_cb,
-	'admin-head-callback'		=> $adminhead_cb,
-	'admin-preview-callback'	=> $adminpreview_cb
-	));*/
 
 	// Enables post and comment RSS feed links to head
 	add_theme_support( 'automatic-feed-links' );
@@ -363,9 +328,6 @@ add_filter( 'body_class', 'add_slug_to_body_class' ); // Add slug to body class 
 add_filter( 'widget_text', 'do_shortcode' ); // Allow shortcodes in Dynamic Sidebar
 add_filter( 'widget_text', 'shortcode_unautop' ); // Remove <p> tags in Dynamic Sidebars (better!)
 add_filter( 'wp_nav_menu_args', 'ks_wp_nav_menu_args' ); // Remove surrounding <div> from WP Navigation
-// add_filter('nav_menu_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected classes (Commented out by default)
-// add_filter('nav_menu_item_id', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> injected ID (Commented out by default)
-// add_filter('page_css_class', 'my_css_attributes_filter', 100, 1); // Remove Navigation <li> Page ID's (Commented out by default)
 add_filter( 'the_category', 'remove_category_rel_from_category_list' ); // Remove invalid rel attribute
 add_filter( 'the_excerpt', 'shortcode_unautop' ); // Remove auto <p> tags in Excerpt (Manual Excerpts only)
 add_filter( 'the_excerpt', 'do_shortcode' ); // Allows Shortcodes to be executed in Excerpt (Manual Excerpts only)
