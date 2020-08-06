@@ -112,11 +112,30 @@ Page style :)
   line-height: 20px;
   padding: 11px 24px;
   transition: background 160ms;
+
+  &:hover {
+    color: #fff;
+    background: #E5007C;
+  }
+
+  &:hover &-icon {
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #fff;
+    color: #fff;
+  }
 }
 
-.entry-like-button:hover {
-  color: #fff;
-  background: #E5007C;
+.entry-like-button-icon {
+  @extend %fa-icon;
+  @extend .far;
+
+  margin-left: 13px;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #E5007C;
+
+  &:before {
+    content: fa-content($fa-var-heart);
+  }
 }
 
 .entry-navigation-previous, .entry-navigation-next, .entry-navigation-numbers {
@@ -160,6 +179,24 @@ Page style :)
 #participation-form input:focus {
   border: 3px solid #E5007C;
   box-shadow: none;
+}
+
+#participation-form .participation-image-label-icon {
+  @extend %fa-icon;
+  @extend .fas;
+
+  margin-right: 5px;
+  color: green;
+  display: none;
+
+  &:before {
+    content: fa-content($fa-var-check);
+  }
+}
+
+
+#participation-form #participation-image:valid + .participation-image-label .participation-image-label-icon {
+  display: inline;
 }
 
 #participation-form .participation-image-label {
@@ -219,6 +256,26 @@ Page style :)
 #participation-form .participation-submit:hover {
   background: transparent;
   color: #E5007C;
+}
+
+#participation-form .participation-form-error {
+  display: none;
+  font-size: 16px;
+  line-height: 16px;
+  font-weight: 700;
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
+  color: #da0000;
+}
+
+#participation-form .participation-form-error-icon {
+  @extend %fa-icon;
+  @extend .fas;
+
+  margin-right: 13px;
+
+  &:before {
+    content: fa-content($fa-var-exclamation-triangle);
+  }
 }
 
 p.small {

@@ -14,19 +14,20 @@
         $('#participation-form').ajaxForm({
             dataType: 'json',
             success: function (data, textStatus, jqXHR, $form) {
-                //console.log(data);
-                //console.log($form);
 
                 if (!data) {
-                    $('.participation-form-error').text('Tapahtui tuntematon virhe. Yritä uudelleen');
+                    $('.participation-form-error').fadeIn().children('.participation-form-error-message').text('Tapahtui tuntematon virhe. Yritä uudelleen');
                 } else if (data.error) {
-                    $('.participation-form-error').text(data.error_msg);
+                    $('.participation-form-error').fadeIn().children('.participation-form-error-message').text(data.error_msg);
                 } else {
-                    $('.participation-form-error').text('');
+                    $('.participation-form-error-message').text('');
                     currentPage = 0;
                     refreshEntries(entriesPerPage, currentOffset);
                 }
-            }
+            },
+            beforeSend: function () {
+                $('.participation-form-error').hide();
+            },
         });
 
         $('.entry-navigation-previous').click(function () {
@@ -123,7 +124,11 @@
                 href: '',
                 "class": 'entry-like-button cell shrink',
                 text: 'Äänestä',
-            }).appendTo(buttonContainer);
+            }).appendTo(buttonContainer).append(
+                $('<i/>', {
+                    "class": 'entry-like-button-icon',
+                })
+            );
 
             $('<a/>', {
                 href: '',

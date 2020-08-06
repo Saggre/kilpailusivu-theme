@@ -97,7 +97,7 @@
             <div class="cell small-6 participate-postbox">
                 <form id="participation-form" name="participation" method="post"
                       action="<?php echo( get_template_directory_uri() . "/participation.php" ); ?>"
-                      enctype="multipart/form-data">
+                      enctype="multipart/form-data" novalidate>
 
                     <p><label for="participation-title">Kuvan otsikko *</label>
                         <input type="text" id="participation-title" value="" tabindex="1" size="20" name="title"
@@ -114,14 +114,21 @@
                                required/>
                     </p>
 
-                    <p><label class="participation-image-label" for="participation-image">Valitse kuva</label>
+                    <p>
                         <input type="file" name="image" id="participation-image" accept="image/*" required
                                style="display:none;">
+                        <label class="participation-image-label" for="participation-image"><i
+                                    class="participation-image-label-icon"></i> Valitse kuva</label>
                     </p>
 
                     <p><input type="checkbox" id="participation-checkbox" name="checkbox" value="" required>
-                        <label class="participation-checkbox-label" for="participation-checkbox">Hyväksyn kilpailun <a href="#">säännöt ja
+                        <label class="participation-checkbox-label" for="participation-checkbox">Hyväksyn kilpailun <a
+                                    href="#">säännöt ja
                                 ehdot</a></label></p>
+
+                    <p class="participation-form-error"><i class="participation-form-error-icon"></i><span
+                                class="participation-form-error-message">Error text</span>
+                    <p/>
 
                     <input type="submit" class="participation-submit" name="participation-submit" value="Osallistu"/>
 
@@ -131,7 +138,7 @@
 
 					<?php wp_nonce_field( 'participation-nonce' ); ?>
                 </form>
-                <p class="participation-form-error">Error text</p>
+
             </div>
         </div>
 

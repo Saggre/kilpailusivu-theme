@@ -8,18 +8,22 @@
 }
 
 .header-text {
-  font-family: "Vinkel";
+  font-family: 'Vinkel', 'Helvetica', sans-serif;
   font-size: 14px;
   color: #FFFFFF;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
-.header-logo {
+.header-logo, .footer-logo {
   margin: 15px 30px;
 }
 
-.header-logo img {
+.header-logo img, .footer-logo img {
   height: 37px;
   margin-bottom: 13px;
+}
+
+.footer {
+  padding-bottom: 20px;
 }

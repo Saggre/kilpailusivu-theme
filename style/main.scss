@@ -9,33 +9,39 @@
 */
 
 @import 'foundation';
+@import "./fa/fontawesome.scss";
+@import "./fa/solid.scss";
+@import "./fa/regular.scss";
+
+$fonts_path: 'fonts/';
+$images_path: 'img/';
 
 @font-face {
   font-family: "Vinkel";
-  src: url("fonts/Vinkel-Regular.otf");
+  src: url("#{$fonts_path}Vinkel-Regular.otf");
 }
 
 @font-face {
   font-family: "Vinkel";
-  src: url("fonts/Vinkel-Light.otf");
-  font-weight: light;
+  src: url("#{$fonts_path}Vinkel-Light.otf");
+  font-weight: 300;
 }
 
 @font-face {
   font-family: "Vinkel";
-  src: url("fonts/Vinkel-Bold.otf");
-  font-weight: bold;
+  src: url("#{$fonts_path}Vinkel-Bold.otf");
+  font-weight: 700;
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url("fonts/Roboto-Regular.ttf");
+  src: url("#{$fonts_path}Roboto-Regular.ttf");
 }
 
 @font-face {
   font-family: "Roboto";
-  src: url("fonts/Roboto-Bold.ttf");
-  font-weight: bold;
+  src: url("#{$fonts_path}Roboto-Bold.ttf");
+  font-weight: 700;
 }
 
 body {
@@ -77,7 +83,7 @@ p {
 .wp-block-button, .button {
   border: 3px solid #E5007C;
   border-radius: 999px;
-  padding: 9px 24px;
+  padding: 13px 24px;
 }
 
 .wp-block-button a, .button {
@@ -111,7 +117,7 @@ p {
   left: 0;
   width: 100%;
   height: 100%;
-  background: #191919 url("img/bg_blur.jpg") no-repeat center;
+  background: #191919 url("#{$images_path}/bg_blur.jpg") no-repeat center;
   background-size: cover;
 }
 
@@ -149,4 +155,3 @@ p {
 
 @import 'page';
 @import 'header';
-
