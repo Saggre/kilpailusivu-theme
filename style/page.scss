@@ -5,32 +5,32 @@ Page style :)
 .section {
   background: #fff;
   margin-bottom: 20px;
-}
 
-.section-description {
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-  font-size: 18px;
-  color: #000;
-  line-height: 50.4px;
-  font-weight: 500;
+  &-description {
+    font-family: 'Vinkel', 'Helvetica', sans-serif;
+    font-size: 18px;
+    color: #000;
+    line-height: 50.4px;
+    font-weight: 500;
+  }
 }
 
 .editor-content {
   padding: 139px 172px;
-}
 
-.editor-content-body {
-  padding: 60px 0;
+  &-body {
+    padding: 60px 0;
+  }
 }
 
 .main-content-image {
   position: relative;
-}
 
-.main-content-image img {
-  position: absolute;
-  top: -60px;
-  right: -60px;
+  img {
+    position: absolute;
+    top: -60px;
+    right: -60px;
+  }
 }
 
 .participate-postbox {
@@ -47,245 +47,234 @@ Page style :)
 
 .entries-grid {
   margin: 0 -10px 50px -10px;
+
+  .entry {
+    padding: 0 10px;
+    margin-bottom: 65px;
+
+    &-title, &-submitter {
+      display: block;
+      font-family: 'Roboto', 'Helvetica', sans-serif;
+      color: #4A4A4A;
+      text-align: left;
+    }
+
+    &-title {
+      font-weight: 700;
+      font-size: 20px;
+    }
+
+    &-submitter {
+      font-size: 14px;
+      color: #4A4A4A;
+      letter-spacing: 1.75px;
+      text-transform: uppercase;
+    }
+
+    &-image {
+      margin-bottom: 20px;
+    }
+
+    &-button-container {
+      background: #D8D8D8;
+      border-radius: 999px;
+      height: 48px;
+      margin-bottom: 15px;
+    }
+
+    &-share-button {
+      font-family: 'Vinkel', 'Helvetica', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 16px;
+      color: #555555;
+      letter-spacing: 2px;
+      line-height: 20px;
+      padding: 14px 24px;
+
+      &:hover {
+        color: #555555;
+      }
+    }
+
+    &-like-button {
+      background: #fff;
+      border: 3px solid #E5007C;
+      border-radius: 999px;
+      font-family: 'Vinkel', 'Helvetica', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 16px;
+      color: #E5007C;
+      letter-spacing: 2px;
+      line-height: 20px;
+      padding: 11px 24px;
+      transition: background 160ms;
+
+      &:hover {
+        color: #fff;
+        background: #E5007C;
+      }
+
+      &:hover &-icon {
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #fff;
+        color: #fff;
+      }
+
+      &-icon {
+        @extend %fa-icon;
+        @extend .far;
+
+        margin-left: 13px;
+        -webkit-text-stroke-width: 1px;
+        -webkit-text-stroke-color: #E5007C;
+
+        &:before {
+          content: fa-content($fa-var-heart);
+        }
+      }
+    }
+  }
 }
 
-.entries-grid .entry {
-  padding: 0 10px;
-  margin-bottom: 65px;
+.entry-navigation {
+  &-previous, &-next, &-numbers {
+    font-family: 'Vinkel', 'Helvetica', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #D8D8D8;
+    cursor: pointer;
+    margin: 0 10px;
+  }
+
+  &-number {
+    display: inline-block;
+    width: 36px;
+  }
+
+  &-number.current {
+    color: #E5007C;
+  }
+
+  &-numbers {
+    font-size: 24px;
+  }
 }
 
-.entry-title, .entry-submitter {
-  display: block;
-  font-family: 'Roboto', 'Helvetica', sans-serif;
-  color: #4A4A4A;
-  text-align: left;
-}
+#participation-form {
+  label {
+    font-family: 'Vinkel', 'Helvetica', sans-serif;
+    font-size: 14px;
+  }
 
-.entry-title {
-  font-weight: 700;
-  font-size: 20px;
-}
+  input {
+    font-family: 'Vinkel', 'Helvetica', sans-serif;
+    font-size: 16px;
+    border: 3px solid #D0D0D0;
+    border-radius: 999px;
+    padding: 11px 24px;
+    vertical-align: middle;
+    height: 48px;
+    margin-bottom: 20px;
 
-.entry-submitter {
-  font-size: 14px;
-  color: #4A4A4A;
-  letter-spacing: 1.75px;
-  text-transform: uppercase;
-}
+    &:focus {
+      border: 3px solid #E5007C;
+      box-shadow: none;
+    }
+  }
 
-.entry-image {
-  margin-bottom: 20px;
-}
+  .participation-image-label {
+    font-family: 'Vinkel', 'Helvetica', sans-serif;
+    background: #D8D8D8;
+    border-radius: 999px;
+    display: block;
+    font-size: 16px;
+    color: #555555;
+    letter-spacing: 2px;
+    text-align: center;
+    line-height: 20px;
+    padding: 14px 24px;
+    font-weight: 700;
+    text-transform: uppercase;
 
-.entry-button-container {
-  background: #D8D8D8;
-  border-radius: 999px;
-  height: 48px;
-  margin-bottom: 15px;
-}
+    &-icon {
+      @extend %fa-icon;
+      @extend .fas;
 
-.entry-share-button {
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 16px;
-  color: #555555;
-  letter-spacing: 2px;
-  line-height: 20px;
-  padding: 14px 24px;
-}
+      margin-right: 5px;
+      color: green;
+      display: none;
 
-.entry-share-button:hover {
-  color: #555555;
-}
+      &:before {
+        content: fa-content($fa-var-check);
+      }
+    }
+  }
 
-.entry-like-button {
-  background: #fff;
-  border: 3px solid #E5007C;
-  border-radius: 999px;
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 16px;
-  color: #E5007C;
-  letter-spacing: 2px;
-  line-height: 20px;
-  padding: 11px 24px;
-  transition: background 160ms;
+  #participation-image:valid + .participation-image-label .participation-image-label-icon {
+    display: inline;
+  }
 
-  &:hover {
+  #participation-checkbox {
+    background: #fff;
+    border: 3px solid #E7E7E7;
+    height: 16px;
+    width: 16px;
+    border-radius: 2px;
+    margin: 0;
+  }
+
+  .participation-checkbox-label {
+    font-size: 16px;
+    line-height: 16px;
+    font-family: 'Vinkel', 'Helvetica', sans-serif;
+
+    a {
+      color: #E5007C;
+      text-decoration: underline;
+    }
+  }
+
+  .participation-submit {
+    font-size: 16px;
     color: #fff;
+    letter-spacing: 2px;
+    font-family: 'Vinkel', 'Helvetica', sans-serif;
+    font-weight: 700;
+    line-height: 20px;
+    padding: 11px 26px;
+    border-radius: 999px;
     background: #E5007C;
+    border: 3px solid #E5007C;
+    text-transform: uppercase;
+    transition: background, color 160ms;
+
+    &:hover {
+      background: transparent;
+      color: #E5007C;
+    }
   }
 
-  &:hover &-icon {
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: #fff;
-    color: #fff;
+  .participation-form {
+    &-error {
+      display: none;
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: 700;
+      font-family: 'Vinkel', 'Helvetica', sans-serif;
+      color: #da0000;
+
+      &-icon {
+        @extend %fa-icon;
+        @extend .fas;
+
+        margin-right: 13px;
+
+        &:before {
+          content: fa-content($fa-var-exclamation-triangle);
+        }
+      }
+    }
   }
-}
-
-.entry-like-button-icon {
-  @extend %fa-icon;
-  @extend .far;
-
-  margin-left: 13px;
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: #E5007C;
-
-  &:before {
-    content: fa-content($fa-var-heart);
-  }
-}
-
-.entry-navigation-previous, .entry-navigation-next, .entry-navigation-numbers {
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  color: #D8D8D8;
-  cursor: pointer;
-  margin: 0 10px;
-}
-
-.entry-navigation-number {
-  display: inline-block;
-  width: 36px;
-}
-
-.entry-navigation-number.current {
-  color: #E5007C;
-}
-
-.entry-navigation-numbers {
-  font-size: 24px;
-}
-
-#participation-form label {
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-  font-size: 14px;
-}
-
-#participation-form input {
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-  font-size: 16px;
-  border: 3px solid #D0D0D0;
-  border-radius: 999px;
-  padding: 11px 24px;
-  vertical-align: middle;
-  height: 48px;
-  margin-bottom: 20px;
-}
-
-#participation-form input:focus {
-  border: 3px solid #E5007C;
-  box-shadow: none;
-}
-
-#participation-form .participation-image-label-icon {
-  @extend %fa-icon;
-  @extend .fas;
-
-  margin-right: 5px;
-  color: green;
-  display: none;
-
-  &:before {
-    content: fa-content($fa-var-check);
-  }
-}
-
-
-#participation-form #participation-image:valid + .participation-image-label .participation-image-label-icon {
-  display: inline;
-}
-
-#participation-form .participation-image-label {
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-  background: #D8D8D8;
-  border-radius: 999px;
-  display: block;
-  font-size: 16px;
-  color: #555555;
-  letter-spacing: 2px;
-  text-align: center;
-  line-height: 20px;
-  padding: 14px 24px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-#participation-form #participation-checkbox {
-  background: #fff;
-  border: 3px solid #E7E7E7;
-  height: 16px;
-  width: 16px;
-  border-radius: 2px;
-  margin: 0;
-}
-
-#participation-form #participation-checkbox:checked {
-
-}
-
-#participation-form .participation-checkbox-label {
-  font-size: 16px;
-  line-height: 16px;
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-}
-
-#participation-form .participation-checkbox-label a {
-  color: #E5007C;
-  text-decoration: underline;
-}
-
-#participation-form .participation-submit {
-  font-size: 16px;
-  color: #fff;
-  letter-spacing: 2px;
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-  font-weight: 700;
-  line-height: 20px;
-  padding: 11px 26px;
-  border-radius: 999px;
-  background: #E5007C;
-  border: 3px solid #E5007C;
-  text-transform: uppercase;
-  transition: background, color 160ms;
-}
-
-#participation-form .participation-submit:hover {
-  background: transparent;
-  color: #E5007C;
-}
-
-#participation-form .participation-form-error {
-  display: none;
-  font-size: 16px;
-  line-height: 16px;
-  font-weight: 700;
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-  color: #da0000;
-}
-
-#participation-form .participation-form-error-icon {
-  @extend %fa-icon;
-  @extend .fas;
-
-  margin-right: 13px;
-
-  &:before {
-    content: fa-content($fa-var-exclamation-triangle);
-  }
-}
-
-p.small {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30.06px;
-}
-
-p.x-small {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 23.38px;
 }

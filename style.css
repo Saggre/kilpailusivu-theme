@@ -5489,7 +5489,7 @@ html.is-reveal-open body {
 #participation-form .participation-form-error-icon,
 #participation-form .participation-image-label-icon,
 .far,
-.entry-like-button-icon,
+.entries-grid .entry-like-button-icon,
 .fal,
 .fad,
 .fab {
@@ -5502,7 +5502,7 @@ html.is-reveal-open body {
   line-height: 1;
 }
 
-#participation-form .participation-form-error-icon, #participation-form .participation-image-label-icon, .entry-like-button-icon {
+#participation-form .participation-form-error-icon, #participation-form .participation-image-label-icon, .entries-grid .entry-like-button-icon {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: inline-block;
@@ -5607,7 +5607,7 @@ html.is-reveal-open body {
 #participation-form .fa-pull-left.participation-form-error-icon,
 #participation-form .fa-pull-left.participation-image-label-icon,
 .far.fa-pull-left,
-.fa-pull-left.entry-like-button-icon,
+.entries-grid .fa-pull-left.entry-like-button-icon,
 .fal.fa-pull-left,
 .fab.fa-pull-left {
   margin-right: 0.3em;
@@ -5617,7 +5617,7 @@ html.is-reveal-open body {
 #participation-form .fa-pull-right.participation-form-error-icon,
 #participation-form .fa-pull-right.participation-image-label-icon,
 .far.fa-pull-right,
-.fa-pull-right.entry-like-button-icon,
+.entries-grid .fa-pull-right.entry-like-button-icon,
 .fal.fa-pull-right,
 .fab.fa-pull-right {
   margin-left: 0.3em;
@@ -11553,7 +11553,7 @@ readers do not read off random characters that represent icons */
   src: url("./fonts/fa/fa-regular-400.eot");
   src: url("./fonts/fa/fa-regular-400.eot?#iefix") format("embedded-opentype"), url("./fonts/fa/fa-regular-400.woff2") format("woff2"), url("./fonts/fa/fa-regular-400.woff") format("woff"), url("./fonts/fa/fa-regular-400.ttf") format("truetype"), url("./fonts/fa/fa-regular-400.svg#fontawesome") format("svg");
 }
-.far, .entry-like-button-icon {
+.far, .entries-grid .entry-like-button-icon {
   font-family: "Font Awesome 5 Free";
   font-weight: 400;
 }
@@ -11616,6 +11616,16 @@ p {
   font-size: 24px;
   line-height: 40.08px;
 }
+p.small {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 30.06px;
+}
+p.x-small {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 23.38px;
+}
 
 .wp-block-button, .button {
   border: 3px solid #E5007C;
@@ -11648,7 +11658,14 @@ p {
   z-index: -100;
   overflow: visible;
 }
-
+.background-solid {
+  position: absolute;
+  background: #E5007C;
+  bottom: 0;
+  left: 0;
+  top: 100vh;
+  width: 100%;
+}
 .background-image {
   top: 0;
   left: 0;
@@ -11657,15 +11674,6 @@ p {
   background: #191919 url("img//bg_blur.jpg") no-repeat center;
   background-size: cover;
 }
-
-.background-gradient-sizer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-}
-
 .background-gradient {
   position: absolute;
   bottom: 0;
@@ -11675,14 +11683,12 @@ p {
   background: transparent;
   background: linear-gradient(180deg, transparent 0%, #E5007C 100%);
 }
-
-.background-solid {
+.background-gradient-sizer {
   position: absolute;
-  background: #E5007C;
-  bottom: 0;
+  top: 0;
   left: 0;
-  top: 100vh;
   width: 100%;
+  height: 100vh;
 }
 
 .wrapper {
@@ -11697,7 +11703,6 @@ Page style :)
   background: #fff;
   margin-bottom: 20px;
 }
-
 .section-description {
   font-family: "Vinkel", "Helvetica", sans-serif;
   font-size: 18px;
@@ -11709,7 +11714,6 @@ Page style :)
 .editor-content {
   padding: 139px 172px;
 }
-
 .editor-content-body {
   padding: 60px 0;
 }
@@ -11717,7 +11721,6 @@ Page style :)
 .main-content-image {
   position: relative;
 }
-
 .main-content-image img {
   position: absolute;
   top: -60px;
@@ -11739,43 +11742,36 @@ Page style :)
 .entries-grid {
   margin: 0 -10px 50px -10px;
 }
-
 .entries-grid .entry {
   padding: 0 10px;
   margin-bottom: 65px;
 }
-
-.entry-title, .entry-submitter {
+.entries-grid .entry-title, .entries-grid .entry-submitter {
   display: block;
   font-family: "Roboto", "Helvetica", sans-serif;
   color: #4A4A4A;
   text-align: left;
 }
-
-.entry-title {
+.entries-grid .entry-title {
   font-weight: 700;
   font-size: 20px;
 }
-
-.entry-submitter {
+.entries-grid .entry-submitter {
   font-size: 14px;
   color: #4A4A4A;
   letter-spacing: 1.75px;
   text-transform: uppercase;
 }
-
-.entry-image {
+.entries-grid .entry-image {
   margin-bottom: 20px;
 }
-
-.entry-button-container {
+.entries-grid .entry-button-container {
   background: #D8D8D8;
   border-radius: 999px;
   height: 48px;
   margin-bottom: 15px;
 }
-
-.entry-share-button {
+.entries-grid .entry-share-button {
   font-family: "Vinkel", "Helvetica", sans-serif;
   font-weight: 700;
   text-transform: uppercase;
@@ -11785,12 +11781,10 @@ Page style :)
   line-height: 20px;
   padding: 14px 24px;
 }
-
-.entry-share-button:hover {
+.entries-grid .entry-share-button:hover {
   color: #555555;
 }
-
-.entry-like-button {
+.entries-grid .entry-like-button {
   background: #fff;
   border: 3px solid #E5007C;
   border-radius: 999px;
@@ -11804,22 +11798,21 @@ Page style :)
   padding: 11px 24px;
   transition: background 160ms;
 }
-.entry-like-button:hover {
+.entries-grid .entry-like-button:hover {
   color: #fff;
   background: #E5007C;
 }
-.entry-like-button:hover .entry-like-button-icon {
+.entries-grid .entry-like-button:hover .entries-grid .entry-like-button-icon {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #fff;
   color: #fff;
 }
-
-.entry-like-button-icon {
+.entries-grid .entry-like-button-icon {
   margin-left: 13px;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: #E5007C;
 }
-.entry-like-button-icon:before {
+.entries-grid .entry-like-button-icon:before {
   content: "";
 }
 
@@ -11831,16 +11824,13 @@ Page style :)
   cursor: pointer;
   margin: 0 10px;
 }
-
 .entry-navigation-number {
   display: inline-block;
   width: 36px;
 }
-
 .entry-navigation-number.current {
   color: #E5007C;
 }
-
 .entry-navigation-numbers {
   font-size: 24px;
 }
@@ -11849,7 +11839,6 @@ Page style :)
   font-family: "Vinkel", "Helvetica", sans-serif;
   font-size: 14px;
 }
-
 #participation-form input {
   font-family: "Vinkel", "Helvetica", sans-serif;
   font-size: 16px;
@@ -11860,25 +11849,10 @@ Page style :)
   height: 48px;
   margin-bottom: 20px;
 }
-
 #participation-form input:focus {
   border: 3px solid #E5007C;
   box-shadow: none;
 }
-
-#participation-form .participation-image-label-icon {
-  margin-right: 5px;
-  color: green;
-  display: none;
-}
-#participation-form .participation-image-label-icon:before {
-  content: "";
-}
-
-#participation-form #participation-image:valid + .participation-image-label .participation-image-label-icon {
-  display: inline;
-}
-
 #participation-form .participation-image-label {
   font-family: "Vinkel", "Helvetica", sans-serif;
   background: #D8D8D8;
@@ -11893,7 +11867,17 @@ Page style :)
   font-weight: 700;
   text-transform: uppercase;
 }
-
+#participation-form .participation-image-label-icon {
+  margin-right: 5px;
+  color: green;
+  display: none;
+}
+#participation-form .participation-image-label-icon:before {
+  content: "";
+}
+#participation-form #participation-image:valid + .participation-image-label .participation-image-label-icon {
+  display: inline;
+}
 #participation-form #participation-checkbox {
   background: #fff;
   border: 3px solid #E7E7E7;
@@ -11902,18 +11886,15 @@ Page style :)
   border-radius: 2px;
   margin: 0;
 }
-
 #participation-form .participation-checkbox-label {
   font-size: 16px;
   line-height: 16px;
   font-family: "Vinkel", "Helvetica", sans-serif;
 }
-
 #participation-form .participation-checkbox-label a {
   color: #E5007C;
   text-decoration: underline;
 }
-
 #participation-form .participation-submit {
   font-size: 16px;
   color: #fff;
@@ -11928,12 +11909,10 @@ Page style :)
   text-transform: uppercase;
   transition: background, color 160ms;
 }
-
 #participation-form .participation-submit:hover {
   background: transparent;
   color: #E5007C;
 }
-
 #participation-form .participation-form-error {
   display: none;
   font-size: 16px;
@@ -11942,24 +11921,11 @@ Page style :)
   font-family: "Vinkel", "Helvetica", sans-serif;
   color: #da0000;
 }
-
 #participation-form .participation-form-error-icon {
   margin-right: 13px;
 }
 #participation-form .participation-form-error-icon:before {
   content: "";
-}
-
-p.small {
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 30.06px;
-}
-
-p.x-small {
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 23.38px;
 }
 
 /*

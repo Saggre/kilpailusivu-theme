@@ -9,9 +9,9 @@
 */
 
 @import 'foundation';
-@import "./fa/fontawesome.scss";
-@import "./fa/solid.scss";
-@import "./fa/regular.scss";
+@import "./fa/fontawesome";
+@import "./fa/solid";
+@import "./fa/regular";
 
 $fonts_path: 'fonts/';
 $images_path: 'img/';
@@ -78,6 +78,18 @@ p {
   color: #000;
   font-size: 24px;
   line-height: 40.08px;
+
+  &.small {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30.06px;
+  }
+
+  &.x-small {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23.38px;
+  }
 }
 
 .wp-block-button, .button {
@@ -110,43 +122,44 @@ p {
   height: 100%;
   z-index: -100;
   overflow: visible;
+
+  &-solid {
+    position: absolute;
+    background: #E5007C;
+    bottom: 0;
+    left: 0;
+    top: 100vh;
+    width: 100%;
+  }
+
+  &-image {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #191919 url("#{$images_path}/bg_blur.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  &-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 304px;
+    background: transparent;
+    background: linear-gradient(180deg, transparent 0%, #E5007C 100%);
+
+    &-sizer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+    }
+  }
 }
 
-.background-image {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: #191919 url("#{$images_path}/bg_blur.jpg") no-repeat center;
-  background-size: cover;
-}
-
-.background-gradient-sizer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-}
-
-.background-gradient {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 304px;
-  background: transparent;
-  background: linear-gradient(180deg, transparent 0%, #E5007C 100%);
-}
-
-.background-solid {
-  position: absolute;
-  background: #E5007C;
-  bottom: 0;
-  left: 0;
-  top: 100vh;
-  width: 100%;
-}
 
 .wrapper {
   width: 1600px;
