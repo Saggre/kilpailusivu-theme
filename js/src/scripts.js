@@ -20,7 +20,6 @@
 
             $('.entries-grid .entry .entry-image').each(
                 function () {
-                    console.log("eyy");
                     $(this).height($(this).width());
                 }
             );
@@ -39,7 +38,7 @@
                 } else {
                     $('.participation-form-error-message').text('');
                     currentPage = 0;
-                    refreshEntries(entriesPerPage, currentOffset);
+                    refreshEntries(entriesPerPage, currentPage);
                 }
             },
             beforeSend: function () {
@@ -64,8 +63,6 @@
                 url: ksData.templateDirectoryUri + '/get_entries.php',
                 data: {number: number, offset: page * number},
                 success: function (data, textStatus, jqXHR) {
-                    console.log(data);
-
                     if (!data || data.error) {
                         return;
                     }

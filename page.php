@@ -14,7 +14,7 @@
 
     <section class="section main-content">
         <div class="grid-x">
-            <div class="cell small-6 editor-content">
+            <div class="cell small-12 medium-12 large-6 editor-content">
                 <h1><?php the_title(); ?></h1>
 
                 <div class="editor-content-body">
@@ -40,7 +40,7 @@
 
                 </div>
             </div>
-            <div class="cell small-6 main-content-image">
+            <div class="cell large-6 main-content-image">
                 <img src="<?php echo( get_template_directory_uri() . '/img/image.jpg' ); ?>" alt="Kilpailu"/>
             </div>
         </div>
@@ -67,7 +67,7 @@
     <section class="section participate">
 
         <div class="grid-x">
-            <div class="cell small-6">
+            <div class="cell medium-12 large-6 participate-body">
                 <h2>Osallistu kilpailuun!</h2>
                 <div style="height:40px;"></div>
                 <p class="small">
@@ -85,7 +85,7 @@
                     Quisque ligula
                     eros ullamcorper quis, lacinia quis facilisis sed sapien. </p>
             </div>
-            <div class="cell small-6 participate-postbox">
+            <div class="cell medium-12 large-6 participate-postbox">
                 <form id="participation-form" name="participation" method="post"
                       action="<?php echo( get_template_directory_uri() . "/participation.php" ); ?>"
                       enctype="multipart/form-data" novalidate>
@@ -112,7 +112,7 @@
                                     class="participation-image-label-icon"></i> Valitse kuva</label>
                     </p>
 
-                    <p><input type="checkbox" id="participation-checkbox" name="checkbox" value="" required>
+                    <p><input type="checkbox" id="participation-checkbox" name="checkbox" value="checked" required>
                         <label class="participation-checkbox-label" for="participation-checkbox">Hyväksyn kilpailun <a
                                     href="#">säännöt ja
                                 ehdot</a></label></p>
@@ -138,14 +138,14 @@
 
     <section class="section rules">
         <div class="grid-x">
-            <div class="cell small-3">
+            <div class="cell large-3 medium-4 small-12">
                 <h3 style="color:#000;">Säännöt ja ehdot</h3>
                 <div style="height:25px;"></div>
                 <p style="font-size: 16px;line-height: 26.72px;">Kilpailuaika 1.1.2020-1.2.2020<br>Kilpailun järjestää
                     Kansallisteatteri<br>Lorem
                     ipsum dolor sit amet<br>Yms.</p>
             </div>
-            <div class="cell small-6" style="padding: 0 40px;">
+            <div class="cell large-6 medium-8 small-12 rules-body">
                 <p class="x-small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem.
                     Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae
                     arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu
@@ -171,8 +171,7 @@
                     cursus scelerisque lorem. Sed nec mauris id quam blandit consequat. Cras nibh mi hendrerit vitae,
                     dapibus et aliquam et magna. Nulla vitae elit. Mauris consectetuer odio vitae augue.</p>
             </div>
-            <div class="cell small-3">
-            </div>
+
         </div>
     </section>
 

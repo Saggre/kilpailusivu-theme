@@ -4,19 +4,22 @@
 
 
 .header {
+  padding: 0;
   height: 120px;
-}
+  text-align: left;
 
-.header-text {
-  font-family: 'Vinkel', 'Helvetica', sans-serif;
-  font-size: 14px;
-  color: #FFFFFF;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  &-text {
+    font-family: 'Vinkel', 'Helvetica', sans-serif;
+    font-size: 14px;
+    color: #FFFFFF;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
 }
 
 .header-logo, .footer-logo {
   margin: 15px 30px;
+  display: inline-block;
 }
 
 .header-logo img, .footer-logo img {
@@ -27,3 +30,18 @@
 .footer {
   padding-bottom: 20px;
 }
+
+
+@include mobile {
+  .header {
+    padding-top: 40px;
+    text-align: center;
+
+    &-logo {
+      margin: 0 15px;
+    }
+  }
+}
+
+
+

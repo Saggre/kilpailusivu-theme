@@ -51,7 +51,12 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' && ! empty( $_POST['action'] ) && $_PO
 		}
 	} else {
 		$return["error"]     = true;
-		$return["error_msg"] = "Lisää kuva";
+		$return["error_msg"] = "Lisää kuva osallistuaksesi";
+	}
+
+	if ( ! isset ( $_POST['checkbox'] ) ) {
+		$return["error"]     = true;
+		$return["error_msg"] = "Hyväksy kilpailun ehdot osallistuaksesi";
 	}
 
 	if ( ! $return["error"] && ! insert_participation( $title, $name, $email, $image ) ) {

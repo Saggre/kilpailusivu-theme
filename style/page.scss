@@ -16,14 +16,15 @@ Page style :)
 }
 
 .editor-content {
-  padding: 139px 172px;
+  padding: 130px 40px;
 
   &-body {
-    padding: 60px 0;
+    padding: 50px 0 10px 0;
   }
 }
 
 .main-content-image {
+  display: none;
   position: relative;
 
   img {
@@ -33,12 +34,121 @@ Page style :)
   }
 }
 
-.participate-postbox {
-  padding-left: 100px;
+.participate {
+  &-postbox {
+    padding: 0;
+  }
+
+  &-body {
+    margin-bottom: 60px;
+  }
 }
 
 .section.entries, .section.participate, .section.rules {
-  padding: 100px 200px;
+  padding: 100px 20px;
+}
+
+.rules-body {
+  padding: 0;
+  margin-top: 20px;
+}
+
+@include tablet {
+
+  .rules-body {
+    padding: 0 40px;
+    margin: 0;
+  }
+
+  .editor-content {
+    padding: 130px 80px;
+
+    &-body {
+      padding: 30px 0;
+    }
+  }
+
+  .section.participate, .section.rules {
+    padding: 100px 80px;
+  }
+
+  .participate {
+    &-postbox {
+
+    }
+
+    &-body {
+
+    }
+  }
+}
+
+@include laptop {
+
+  .rules-body {
+    padding: 0 40px;
+    margin: 0;
+  }
+
+  .editor-content {
+    padding: 130px 80px;
+
+    &-body {
+      padding: 50px 0;
+    }
+  }
+
+  .main-content-image {
+    display: block;
+  }
+
+  .section.participate, .section.rules {
+    padding: 100px 80px;
+  }
+
+  .participate {
+    &-postbox {
+      padding-left: 60px;
+    }
+
+    &-body {
+
+    }
+  }
+}
+
+@include desktop {
+
+  .rules-body {
+    padding: 0 40px;
+    margin: 0;
+  }
+
+  .editor-content {
+    padding: 139px 172px;
+
+    &-body {
+      padding: 60px 0;
+    }
+  }
+
+  .main-content-image {
+    display: block;
+  }
+
+  .section.entries, .section.participate, .section.rules {
+    padding: 100px 200px;
+  }
+
+  .participate {
+    &-postbox {
+      padding-left: 100px;
+    }
+
+    &-body {
+      margin: 0;
+    }
+  }
 }
 
 .section.entries {
@@ -90,7 +200,7 @@ Page style :)
       color: #555555;
       letter-spacing: 2px;
       line-height: 20px;
-      padding: 14px 24px;
+      padding: 14px 22px 14px 8px;
 
       &:hover {
         color: #555555;
@@ -108,7 +218,7 @@ Page style :)
       color: #E5007C;
       letter-spacing: 2px;
       line-height: 20px;
-      padding: 11px 24px;
+      padding: 11px 20px;
       transition: background 160ms;
 
       &:hover {
@@ -116,23 +226,21 @@ Page style :)
         background: #E5007C;
       }
 
-      &:hover &-icon {
-        -webkit-text-stroke-width: 1px;
-        -webkit-text-stroke-color: #fff;
-        color: #fff;
-      }
-
       &-icon {
         @extend %fa-icon;
-        @extend .far;
+        @extend .fas;
 
-        margin-left: 13px;
+        margin-left: 10px;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: #E5007C;
 
         &:before {
           content: fa-content($fa-var-heart);
         }
+      }
+
+      &:hover &-icon {
+        color: #fff;
       }
     }
   }

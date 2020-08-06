@@ -12,7 +12,7 @@ const files = [
     'node_modules/jquery-form/dist/jquery.form.min.js',
     'node_modules/jquery.scrollto/jquery.scrollTo.js',
     'node_modules/foundation-sites/dist/js/foundation.min.js',
-    'js/lib/scripts.js',
+    'js/src/scripts.js',
 ];
 
 /*
