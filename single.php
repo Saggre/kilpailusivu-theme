@@ -26,12 +26,12 @@
 			<!-- post details -->
 			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
 			<span class="author"><?php _e( 'Published by', 'kilpailusivu' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
+			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'kilpailusivu' ), __( '1 Comment', 'kilpailusivu' ), __( '% Comments', 'kilpailusivu' )); ?></span>
 			<!-- /post details -->
 
 			<?php the_content(); // Dynamic Content ?>
 
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+			<?php the_tags( __( 'Tags: ', 'kilpailusivu' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
 
 			<p><?php _e( 'Categorised in: ', 'kilpailusivu' ); the_category(', '); // Separated by commas ?></p>
 

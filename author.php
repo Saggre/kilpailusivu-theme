@@ -40,7 +40,7 @@
 				<!-- post details -->
 				<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
 				<span class="author"><?php _e( 'Published by', 'kilpailusivu' ); ?> <?php the_author_posts_link(); ?></span>
-				<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
+				<span class="comments"><?php comments_popup_link( __( 'Leave your thoughts', 'kilpailusivu' ), __( '1 Comment', 'kilpailusivu' ), __( '% Comments', 'kilpailusivu' )); ?></span>
 				<!-- /post details -->
 
 				<?php ks_excerpt('ks_index'); // Build your custom callback length in functions.php ?>
