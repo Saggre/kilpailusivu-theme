@@ -76,9 +76,6 @@ function ks_scripts() {
  * Enqueue styles
  */
 function ks_styles() {
-	wp_register_style( 'normalize', get_template_directory_uri() . '/normalize.css', array(), '1.0', 'all' );
-	wp_enqueue_style( 'normalize' ); // Enqueue it!
-
 	wp_register_style( 'ks', get_template_directory_uri() . '/style.css', array(), '1.0', 'all' );
 	wp_enqueue_style( 'ks' ); // Enqueue it!
 }
