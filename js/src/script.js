@@ -60,6 +60,7 @@
             beforeSend: function () {
                 $('.participation-form-error').hide();
             },
+            clearForm: true,
         });
 
         $('.entry-navigation-previous').show().click(function () {
