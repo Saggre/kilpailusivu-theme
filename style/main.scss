@@ -13,8 +13,8 @@
 @import "./fa/solid";
 @import "./fa/regular";
 
-$fonts_path: 'fonts/';
-$images_path: 'img/';
+$fonts_path: './fonts/';
+$images_path: './img/';
 
 $breakpoint-laptop: 1500px;
 $breakpoint-tablet: 1024px;
@@ -252,13 +252,13 @@ p {
 
   @include tablet {
     &-image {
-      background: #191919 url("#{$images_path}/bg_blur_180.jpg") no-repeat center top;
+      background: #393939 url("#{$images_path}/bg_blur_180.jpg") no-repeat bottom right;
     }
   }
 
   @include mobile {
     &-image {
-      background: #191919 url("#{$images_path}/bg_blur_180.jpg") no-repeat center top;
+      background: #393939 url("#{$images_path}/bg_blur_180.jpg") no-repeat bottom right;
     }
   }
 

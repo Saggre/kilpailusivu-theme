@@ -60,7 +60,7 @@ function ks_scripts() {
 
 		wp_register_script( 'ks_scripts', get_template_directory_uri() . '/js/app.min.js', array(
 			'jquery',
-		), '1.0.0' );
+		), '1.0.1' );
 
 		// Localize the script with new data
 		$ks_data = array(
