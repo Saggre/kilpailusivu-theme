@@ -17,13 +17,14 @@
         });
 
         $(window).resize(function () {
-
             $('.entries-grid .entry .entry-image').each(
                 function () {
                     $(this).height($(this).width());
                 }
             );
         });
+
+        $('#participation-form input[name="is-ajax"]').val("1");
 
         /**
          * Called on entry like button press
@@ -41,8 +42,6 @@
             // TODO implementation
         }
 
-        $('#participation-form input[name="is-ajax"]').val("1");
-
         $('#participation-form').ajaxForm({
             dataType: 'json',
             success: function (data, textStatus, jqXHR, $form) {
@@ -55,12 +54,15 @@
                     $('.participation-form-error-message').text('');
                     currentPage = 0;
                     refreshEntries(entriesPerPage, currentPage);
+
+                    $form.trigger("reset");
                 }
+
             },
             beforeSend: function () {
                 $('.participation-form-error').hide();
             },
-            clearForm: true,
+            clearForm: false,
         });
 
         $('.entry-navigation-previous').show().click(function () {

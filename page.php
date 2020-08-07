@@ -117,7 +117,7 @@
 
                     <p><input type="checkbox" id="participation-checkbox" name="checkbox" value="checked" required>
                         <label class="participation-checkbox-label" for="participation-checkbox">Hyväksyn kilpailun <a
-                                    href="#">säännöt ja
+                                    href="#/">säännöt ja
                                 ehdot</a></label></p>
 
                     <p class="participation-form-error"><i class="participation-form-error-icon"></i><span
