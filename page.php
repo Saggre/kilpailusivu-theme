@@ -88,7 +88,7 @@
             </div>
             <div class="cell medium-12 large-6 participate-postbox">
                 <form id="participation-form" name="participation" method="post"
-                      action="<?php echo( get_template_directory_uri() . "/participation.php" ); ?>"
+                      action="<?php echo( get_template_directory_uri() . "/api/insert_entry.php" ); ?>"
                       enctype="multipart/form-data" novalidate>
 
                     <p><label for="participation-title">Kuvan otsikko *</label>

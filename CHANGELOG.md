@@ -112,7 +112,7 @@
 * Update jQuery to version 1.9.1, Google CDN and CloudFlare CDN
 * Update Conditionizr to CDNJS CloudFlare v2.1.1
 * Removed mediaqueries.min.js, do we really need older browsers to be responsive, HTML5Shiv (built-in Modernizr) is enough
-* Updated scripts.js to ride off Modernizr.svg feature detect and remove custom script detect
+* Updated script.js to ride off Modernizr.svg feature detect and remove custom script detect
 
 ## 1.3.0 (09 February, 2013)
 
@@ -140,7 +140,7 @@
 
 * [Conditionizr](http://conditionizr.com) legacy script and style loader added
 	* Conditional statements removed from HTML tag (HTML classes added dynamically with Conditionizr)
-	* Conditional statement for mediaqueries.min.js removed (added dynamically with Conditionizr, included inside scripts.js)
+	* Conditional statement for mediaqueries.min.js removed (added dynamically with Conditionizr, included inside script.js)
 	* conditionizr.min.js and conditionizr.js enqueued
 	* /css/conditionizr/ added with browser styles
 	* /js/conditionizr/ added with browser scripts
@@ -148,7 +148,7 @@
 
 ## 1.2.5 (09 December, 2012)
 
-* Added SVG support in scripts.js for SVG graphics
+* Added SVG support in script.js for SVG graphics
 * Shorten DOM ready function call to shorthand
 * Removed web app capable meta tag, kept viewport
 * CSS3 Media Queries JavaScript polyfill added to header.php
@@ -178,7 +178,7 @@
 ## 1.2.1 (07 October, 2012)
 
 * Custom callback for wp_nav_menu, now in functions.php with html5blank_nav(); in header.php
-* JavaScript added to 'scripts.js', hides URL bar after page load on iPhone/iPad, great for responsive projects
+* JavaScript added to 'script.js', hides URL bar after page load on iPhone/iPad, great for responsive projects
 * Meta tag 'apple-mobile-web-app-capable' added to header.php
 * Meta tag 'apple-mobile-web-app-status-bar-style' added to header.php
 

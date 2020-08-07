@@ -27,23 +27,17 @@
 
         /**
          * Called on entry like button press
-         * @param $button
+         * @param $entry
          */
-        function onEntryLiked($button) {
-            $button.addClass('liked');
-
-            // Fake like count
-            $button.children('.entry-like-button-text').text('');
-            $button.children('.entry-like-button-count').text(Math.floor(Math.random() * 256));
-
-            // TODO implementation
+        function onEntryLikePressed($entry) {
+            likeEntry($entry);
         }
 
         /**
          * Called on entry share button press
-         * @param $button
+         * @param $entry
          */
-        function onEntryShared($button) {
+        function onEntrySharePressed($entry) {
             // TODO implementation
         }
 
@@ -79,10 +73,41 @@
             refreshEntries(entriesPerPage, currentPage);
         });
 
+        /**
+         * Sends a like for an entry and updates its number of likes in UI
+         */
+        function likeEntry($entryElement) {
+            var entryId = parseInt($entryElement.attr('entry-id'));
+
+            $.ajax({
+                type: "POST",
+                url: ksData.templateDirectoryUri + '/api/like_entry.php',
+                data: {entry_id: entryId},
+                success: function (data, textStatus, jqXHR) {
+                    console.log(data);
+                    if (!data || data.error) {
+                        return;
+                    }
+
+                    $entryElement.find('.entry-like-button-text').text('');
+                    $entryElement.find('.entry-like-button-count').text(data.likes.toString());
+                    $entryElement.find('.entry-like-button').addClass('liked');
+
+                },
+                dataType: 'json'
+            });
+        }
+
+        /**
+         * Gets entries for the current page and displays them
+         * @param number
+         * @param page
+         * @param first
+         */
         function refreshEntries(number, page, first = false) {
             $.ajax({
                 type: "POST",
-                url: ksData.templateDirectoryUri + '/get_entries.php',
+                url: ksData.templateDirectoryUri + '/api/get_entries.php',
                 data: {number: number, offset: page * number},
                 success: function (data, textStatus, jqXHR) {
                     if (!data || data.error) {
@@ -145,22 +170,28 @@
 
         }
 
+        /**
+         * Creates and adds HTML for an entry
+         * @param entry
+         * @returns {*|jQuery|HTMLElement} returns the newly created element
+         */
         function addEntryHTML(entry) {
-            var entryElement = $('<div/>', {
+            var $entryElement = $('<div/>', {
                 "class": 'entry small-12 medium-6 large-3',
+                "entry-id": entry.id,
             });
 
-            entryElement.appendTo($('.entries-grid')).hide().fadeIn();
+            $entryElement.appendTo($('.entries-grid')).hide().fadeIn();
 
             var image = $('<div/>', {
                 "class": 'entry-image',
-            }).css('background-image', 'url(' + entry.image + ')').css('background-size', 'cover').appendTo(entryElement);
+            }).css('background-image', 'url(' + entry.image + ')').css('background-size', 'cover').appendTo($entryElement);
 
             image.height(image.width());
 
             var buttonContainer = $('<div/>', {
                 "class": 'entry-button-container grid-x',
-            }).appendTo(entryElement);
+            }).appendTo($entryElement);
 
             $('<a/>', {
                 href: '#/',
@@ -179,7 +210,7 @@
                     "class": 'entry-like-button-count',
                 })
             ).click(function (e) {
-                onEntryLiked($(this));
+                onEntryLikePressed($entryElement);
                 e.preventDefault();
             });
 
@@ -188,21 +219,21 @@
                 "class": 'entry-share-button cell auto',
                 text: 'Jaa',
             }).appendTo(buttonContainer).click(function (e) {
-                onEntryShared($(this));
+                onEntrySharePressed($entryElement);
                 e.preventDefault();
             });
 
             $('<span/>', {
                 "class": 'entry-title',
                 text: entry.title,
-            }).appendTo(entryElement);
+            }).appendTo($entryElement);
 
             $('<span/>', {
                 "class": 'entry-submitter',
                 text: entry.name,
-            }).appendTo(entryElement);
+            }).appendTo($entryElement);
 
-            return entryElement;
+            return $entryElement;
         }
 
     });

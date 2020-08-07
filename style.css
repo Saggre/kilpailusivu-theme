@@ -11591,11 +11591,7 @@ body {
   box-sizing: border-box;
 }
 *:focus {
-  outline: none;
-}
-
-a {
-  outline: none;
+  outline: none !important;
 }
 
 h1, h2, h3 {

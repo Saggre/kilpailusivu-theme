@@ -81,13 +81,10 @@ body {
   box-sizing: border-box;
 
   &:focus {
-    outline: none;
+    outline: none !important;
   }
 }
 
-a {
-  outline: none;
-}
 
 h1, h2, h3 {
   font-family: 'Vinkel', 'Helvetica', sans-serif;
