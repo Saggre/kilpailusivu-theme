@@ -50,8 +50,10 @@
         <h2>Kilpailun kuvat otsikko</h2>
         <span class="section-description">Aikaa osallistua ja äänestää 1.2.2020 asti</span>
         <div style="height:70px;"></div>
+        <p class="entries-no-entries" style="display:none;">Ei vielä kuvia. Ole ensimmäinen osallistuja!</p>
         <div class="grid-x entries-grid">
         </div>
+
         <div class="grid-x align-middle align-center entry-navigation">
             <div class="cell shrink entry-navigation-previous">
                 Edellinen

@@ -84,7 +84,7 @@
                 url: ksData.templateDirectoryUri + '/api/like_entry.php',
                 data: {entry_id: entryId},
                 success: function (data, textStatus, jqXHR) {
-                    console.log(data);
+
                     if (!data || data.error) {
                         return;
                     }
@@ -117,11 +117,17 @@
                     $('.entries-grid').empty();
 
                     var entries = data.entries;
-                    for (var i = 0; i < entries.length; i++) {
-                        addEntryHTML(entries[i]);
+
+                    if (entries.length === 0) {
+                        $('.entries-no-entries').show();
+                    } else {
+                        $('.entries-no-entries').hide();
+                        for (var i = 0; i < entries.length; i++) {
+                            addEntryHTML(entries[i]);
+                        }
                     }
 
-                    refreshNavigation(data.post_count, number);
+                    refreshNavigation(parseInt(data.post_count), number);
 
                     if (!first) {
                         $(window).scrollTo($('.section.entries'), 400, {
@@ -135,6 +141,11 @@
 
         }
 
+        /**
+         * Refresh entry navigation bar according to data provided
+         * @param totalEntries
+         * @param number
+         */
         function refreshNavigation(totalEntries, number) {
 
             var numberEls = $('.entry-navigation .entry-navigation-numbers').empty();
@@ -155,14 +166,14 @@
             }
 
 
-            // Hiden prev and next
-            if (currentPage === 0) {
+            // Show/hide prev and next buttons
+            if (currentPage === 0 || totalEntries === 0) {
                 $(".entry-navigation-previous").hide();
             } else {
                 $(".entry-navigation-previous").show();
             }
 
-            if (currentPage === pages - 1) {
+            if (currentPage === pages - 1 || totalEntries === 0) {
                 $(".entry-navigation-next").hide();
             } else {
                 $(".entry-navigation-next").show();

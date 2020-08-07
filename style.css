@@ -11778,6 +11778,11 @@ p.x-small {
   margin: 0 auto;
 }
 
+@media (max-width: 640px) {
+  .wrapper {
+    padding: 0 10px;
+  }
+}
 /*
 Page style :)
 */
@@ -11789,12 +11794,12 @@ Page style :)
   font-family: "Vinkel", "Helvetica", sans-serif;
   font-size: 18px;
   color: #000;
-  line-height: 50.4px;
+  line-height: 1.66em;
   font-weight: 500;
 }
 
 .editor-content {
-  padding: 130px 40px;
+  padding: 100px 40px;
 }
 .editor-content-body {
   padding: 50px 0 10px 0;
@@ -11826,6 +11831,11 @@ Page style :)
   margin-top: 20px;
 }
 
+@media (max-width: 640px) {
+  .button.participate-cta {
+    width: 100%;
+  }
+}
 @media (min-width: 640px) and (max-width: 1023px) {
   .rules-body {
     padding: 0 40px;
@@ -11833,7 +11843,7 @@ Page style :)
   }
 
   .editor-content {
-    padding: 130px 80px;
+    padding: 100px 80px;
   }
   .editor-content-body {
     padding: 30px 0;
@@ -12055,6 +12065,7 @@ Page style :)
   margin: 0;
 }
 #participation-form .participation-checkbox-label {
+  display: inline;
   font-size: 16px;
   line-height: 16px;
   font-family: "Vinkel", "Helvetica", sans-serif;
