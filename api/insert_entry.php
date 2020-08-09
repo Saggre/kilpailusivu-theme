@@ -2,12 +2,19 @@
 
 include_once 'api_functions.php';
 
-if ( $_SERVER['REQUEST_METHOD'] == 'POST' && ! empty( $_POST['action'] ) && $_POST['action'] == "new-participation" ) {
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
 
 	$return = array(
 		"error"     => false,
 		"error_msg" => ""
 	);
+
+	if ( ! isset( $_POST['nonce_field'] ) || ! wp_verify_nonce( $_POST['nonce_field'], 'insert_entry' ) ) {
+		$return["error"]     = true;
+		$return["error_msg"] = "Tapahtui tuntematon virhe";
+		echo( json_encode( $return ) );
+		exit;
+	}
 
 	$is_ajax = false;
 

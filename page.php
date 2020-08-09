@@ -126,11 +126,9 @@
 
                     <input type="submit" class="participation-submit" name="participation-submit" value="Osallistu"/>
 
-                    <input type="hidden" name="action" value="new-participation"/>
-
                     <input type="hidden" name="is-ajax" value="0"/>
 
-					<?php wp_nonce_field( 'participation-nonce' ); ?>
+					<?php wp_nonce_field( 'insert_entry', 'nonce_field' ); ?>
                 </form>
 
             </div>
